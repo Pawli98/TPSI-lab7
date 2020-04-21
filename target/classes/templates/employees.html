@@ -51,8 +51,8 @@
                     <td th:text = "${#numbers.formatDecimal(employee.salary,3,'WHITESPACE',2,'POINT')}"></td>
                     <td th:text = "${#dates.format(employee.dateOfEmployment, 'dd.MM.yyyy')}"></td>
                     <td th:text = "${employee.dateOfTermination}? ${#dates.format(employee.dateOfTermination, 'dd.MM.yyyy')}:'wciąż pracuje' "></td>
-                    <td><p th:each = "prod, iterStat : ${employee.skills}"><span th:text="${prod.name} + ' (' + ${prod.level} + ')' "></span></p></td>
-                    <td th:text="${kom}"><p th:each="kom : ${employee.comments}" th:text="${kom}"></p></td>
+                    <td><p th:each = "prod, iterStat : ${employee.skills}" th:text="${prod.name} + ' (' + ${prod.level} + ')'  + (${iterStat.last}? '' : ',') "></p></td>
+                    <td><p th:each="kom : ${employee.comments}" th:text="${kom}"></p></td>
                     <td><img th:src="${employee.photoUrl}" class="empPhoto" src="http://via.placeholder.com/250x250"/></td>
                 </tr>
             </table>
